@@ -38,7 +38,6 @@ def formularios():
 
 @app.route('/tablas')
 def tablas():
-
 	return render_template("tables.html",nombre="nombre")
 
 
@@ -81,6 +80,9 @@ def post(post_id):
 	cur.execute(sql)
 	comentarios  = cur.fetchall()
 	return render_template("post.html",post= post,categorias=categorias,comentarios= comentarios)
+
+
+@app.route('/comentario/<id>', methods=['GET', 'POST'])
 def comentario(id):
 	if request.method == 'POST':
 		comentario =  request.form['comentarios']

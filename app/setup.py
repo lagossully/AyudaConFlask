@@ -4,47 +4,123 @@ conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 
 
 cur = conn.cursor()
-sql ="""DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;"""
+
+
+
+sql ="""DROP SCHEMA public CASCADE; CREATE SCHEMA public;"""
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE posts 
-           (id serial PRIMARY KEY, titulo varchar(40), resumen varchar, texto text, creado timestamp);
+CREATE TABLE CLIENTES
+           (RUT integer PRIMARY KEY,
+           digito varchar(1),
+           nombre varchar(40),
+           apellido varchar(40),
+           email varchar(100),
+           telefono varchar(10), 
+           creado timestamp);
 """
+cur.execute(sql)
 
+sql ="""
+CREATE TABLE AUTOS
+           (PATENTE varchar(6) PRIMARY KEY,
+            rut integer references clientes(rut),
+            largo integer, 
+            ancho integer, 
+            alto integer, 
+            peso_neto integer,
+            tipo_combustible varchar, 
+            tipo_auto varchar, 
+            maximo_pasajeros integer,
+            num_aro varchar, 
+            creado timestamp);
+"""
 cur.execute(sql)
 
 
 sql ="""
-CREATE TABLE categorias 
-           (id serial PRIMARY KEY, nombre varchar(40), creado timestamp);
+CREATE TABLE SENSORES
+           (id_sensor varchar(10) PRIMARY KEY, 
+           nombre varchar(40), 
+           presicion integer, 
+           tipo_unidad varchar(10),
+           creado timestamp);
 """
 
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE categorias_posts 
-           (categoria_id integer, post_id integer);
+CREATE TABLE REGISTROS
+           ( ID_REGISTRO int PRIMARY KEY,
+            hora int,
+            fecha int,
+            valor int, 
+            creado timestamp);
 """
-
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE  usuarios
-           (id serial PRIMARY KEY,rol integer, nombre varchar(40),apellido varchar(40),
-           email varchar(100),passwd varchar(255), creado timestamp);
+CREATE TABLE MEDICIONES
+           ( ID_REGISTRO int references REGISTROS(ID_REGISTRO),
+            id_sensor varchar(10) references SENSORES(id_sensor),
+            patente varchar(6) references AUTOS(PATENTE),
+            creado timestamp);
 """
-
 cur.execute(sql)
 
 sql ="""
-CREATE TABLE comentarios
-           (id serial PRIMARY KEY, comentario varchar(140), post_id integer, usuario_id integer, creado timestamp);
+CREATE TABLE CHOQUES
+            (ID_EVENTO int PRIMARY KEY,
+            fecha int,
+            hora int,
+            ciudad varchar(60),
+            calle varchar(60),
+            numeracion varchar(10),
+            creado timestamp);
 """
-
 cur.execute(sql)
+
+sql ="""
+CREATE TABLE INVOLUCRADOS
+            (ID_EVENTO int references CHOQUES(ID_EVENTO),
+            PATENTE varchar(6) references AUTOS(PATENTE),
+            pasajeros_afectados int,
+            creado timestamp);
+"""
+cur.execute(sql)
+
+sql ="""
+CREATE TABLE GPS
+            (PATENTE varchar(6) references AUTOS(PATENTE),
+            fecha int,
+            hora int,
+            longitud int,
+            latitud int,
+            creado timestamp);
+"""
+cur.execute(sql)
+
+sql ="""
+CREATE TABLE FALTAS
+            (id_penalizacion integer PRIMARY KEY,
+            monto int,
+            comentario varchar(100),
+            fecha_incidente int,
+            fecha_vencimiento int,
+            creado timestamp);
+"""
+cur.execute(sql)
+
+sql ="""
+CREATE TABLE DEBE
+            (RUT integer references CLIENTES(RUT),
+            id_penalizacion integer references FALTAS(id_penalizacion),
+            creado timestamp);
+"""
+cur.execute(sql)
+
 
 
 conn.commit()
