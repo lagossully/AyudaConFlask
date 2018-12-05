@@ -4,7 +4,7 @@ conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 cur = conn.cursor()
 
 sql ="""
-insert into choques (rut, id_penalizacion) values
+insert into debe (rut, id_penalizacion) values
 ((0,0),
 (0,1),
 (0,2),
@@ -107,6 +107,7 @@ insert into choques (rut, id_penalizacion) values
 (9,9),
 now())
 """
+
 cur.execute(sql)
 
 sql ="""
