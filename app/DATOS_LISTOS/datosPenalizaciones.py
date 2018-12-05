@@ -10,7 +10,7 @@ print("insert into choques (id, monto, fecha_incidente, fecha_Pago) values")
 for x in range(0,10):
     incidente = fake.date()
     pago = fake.date()
-    while incidente > pago:
+    while incidente > lspago:
         pago = fake.date()
 
     print("('{}','{}','{}','{}'),".format(x,randint(40000,300000),incidente,pago))

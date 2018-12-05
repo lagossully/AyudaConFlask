@@ -18,9 +18,10 @@ combustible = ["gasolina98", "gasolina95", "gasolina93", "Diesel"]
 tautos = ["Sedan", "Station Wagon", "Doble Cabina", "Hatchback","SUV", "Furgon"]
 
 def rand():
-    return choice(('A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','I','O','P','Q'))
+    return choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','I','O','P','Q'])
 def rand2():
     return randrange(1,9,1)
+
 list1=[]
 
 #print("insert into autos (patente, largo, ancho, alto, peso_neto, peso_max, tipo_combustible, tipo_auto, cant_pasajero, numeroAro) values")
@@ -32,7 +33,7 @@ for x in posts:
         patente=str(rand())+str(rand())+str(rand())+str(rand())+str(rand2())+str(rand2())
     list1.append(patente)
     sql="""insert INTO autos VALUES """
-    sql=sql+("('{}',{},{},{},{},{},'{}','{}',{},'{}');".format(patente,
+    sql=sql+("('{}','{}','{}','{}','{}','{}','{}','{}',{},'{}');".format(patente,
     x[0],
     randint(3500, 5000),
     randint(1700, 1900), 

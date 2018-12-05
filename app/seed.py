@@ -4,7 +4,7 @@ conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 cur = conn.cursor()
 
 sql ="""
-insert into choques (rut, id_penalizacion) values
+insert into debe (rut, id_penalizacion) values
 ((0,0),
 (0,1),
 (0,2),
@@ -111,7 +111,7 @@ cur.execute(sql)
 
 sql ="""
 insert into posts (titulo,resumen,texto,creado) values ('Iron Man 4 ','La nueva pelicula de iron saldra el proximo 2018',
-'Esta pelicula bla bla bla y ser la mejor por que si ',now()) returning id;
+'Esta pelicula bla bla bla y ser la mejor por que si ') returning id;
 """
 
 cur.execute(sql)
@@ -119,7 +119,6 @@ conn.commit()
 post_id = cur.fetchone()[0]
 
 print post_id
-
 
 sql ="""insert INTO categorias_posts (categoria_id,post_id)
 (SELECT id,%i  FROM categorias where nombre = 'Cine' or 
