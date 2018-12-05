@@ -24,16 +24,15 @@ for x in range(0,10):
     sql="""insert into clientes (rut,digito,nombre,apellido,email,felefono) values """
     rut=9020677+random.choice(list1)+random.choice(list2)+x*100
     
-    sql=sql+("({},'{}','{}','{}','{}','{}','{}',{});".format(str(rut),
+    sql=sql+("('{}','{}','{}','{}','{}','{}','{}');".format(str(rut),
     (random.choice(list3)),
     (y.split()[0]),
     (y.split()[1]),
     (fake.email()),
     (fake.phone_number()),
-    (fake.address()),
-    (random.choice(range(18,70)))
+    (fake.address())
     )
-    #print(sql)
+
     if rut in list5:
         
         x=x-1
