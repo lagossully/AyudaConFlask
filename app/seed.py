@@ -107,6 +107,7 @@ insert into debe (rut, id_penalizacion) values
 (9,9),
 now())
 """
+
 cur.execute(sql)
 
 sql ="""
