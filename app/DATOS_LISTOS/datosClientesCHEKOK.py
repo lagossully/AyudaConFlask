@@ -32,7 +32,7 @@ for x in range(0,10):
     (fake.phone_number()),
     (fake.address()),
     (random.choice(range(18,70)))
-    ()))
+    )
     #print(sql)
     if rut in list5:
         

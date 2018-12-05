@@ -20,7 +20,7 @@ CREATE TABLE CLIENTES
            email varchar(100),
            telefono varchar(10),
            direccion varchar(40),
-           edad intiger,
+           edad integer,
            creado timestamp);
 """
 cur.execute(sql)
