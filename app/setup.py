@@ -13,14 +13,17 @@ cur.execute(sql)
 
 sql ="""
 CREATE TABLE CLIENTES
-           (RUT integer PRIMARY KEY,
+           (RUT varchar(40) PRIMARY KEY,
            digito varchar(1),
            nombre varchar(40),
            apellido varchar(40),
            email varchar(100),
            telefono varchar(10),
            direccion varchar(40),
+<<<<<<< HEAD
            edad integer,
+=======
+>>>>>>> 95ec7b3999fde507f97ced2b42d8665c153380f7
            creado timestamp);
 """
 cur.execute(sql)
