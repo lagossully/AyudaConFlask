@@ -18,7 +18,9 @@ CREATE TABLE CLIENTES
            nombre varchar(40),
            apellido varchar(40),
            email varchar(100),
-           telefono varchar(10), 
+           telefono varchar(10),
+           direccion varchar(40),
+           edad intiger,
            creado timestamp);
 """
 cur.execute(sql)
@@ -51,21 +53,15 @@ CREATE TABLE SENSORES
 
 cur.execute(sql)
 
-sql ="""
-CREATE TABLE REGISTROS
-           ( ID_REGISTRO int PRIMARY KEY,
-            hora int,
-            fecha int,
-            valor int, 
-            creado timestamp);
-"""
-cur.execute(sql)
+
 
 sql ="""
 CREATE TABLE MEDICIONES
-           ( ID_REGISTRO int references REGISTROS(ID_REGISTRO),
-            id_sensor varchar(10) references SENSORES(id_sensor),
+           (id_sensor varchar(10) references SENSORES(id_sensor),
             patente varchar(6) references AUTOS(PATENTE),
+            hora int,
+            fecha int,
+            valor int,
             creado timestamp);
 """
 cur.execute(sql)
