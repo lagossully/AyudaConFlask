@@ -2,14 +2,10 @@ from faker import Faker
 from time import time 
 
 fake = Faker()
-tiempo = time()
 print("DEBE")
-print("insert into choques (id_usuario,id_penalizacion, comentario) values")
+print("insert into choques (id_usuario,id_penalizacion) values")
 
 for x in range(0,10):
     for y in range(0,10):
-        print("({},'{}','{}'),".format(x,y,fake.text()))
+        print("({},{}),".format(x,y))
 print(")")
-
-final = time()- tiempo
-print("Tiempo total en crearse todos los datos es ", final)
