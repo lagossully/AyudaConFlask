@@ -13,7 +13,7 @@ cur.execute(sql)
 
 sql ="""
 CREATE TABLE CLIENTES
-           (RUT varchar(40) PRIMARY KEY,
+           (RUT integer PRIMARY KEY,
            digito varchar(1),
            nombre varchar(40),
            apellido varchar(40),
