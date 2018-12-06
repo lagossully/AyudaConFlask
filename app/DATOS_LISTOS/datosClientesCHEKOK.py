@@ -21,7 +21,7 @@ list3=['1','2','3','6','8','k','0']
 list5=[]
 for x in range(0,10):       
     y = fake.name()
-    sql="""insert into clientes (rut,digito,nombre,apellido,email,felefono, direccion) values """
+    sql="""insert into clientes (rut,digito,nombre,apellido,email,telefono,direccion) values """
     rut=9020677+random.choice(list1)+random.choice(list2)+x*100
     
     sql=sql+("({},'{}','{}','{}','{}','{}','{}');".format(rut,
