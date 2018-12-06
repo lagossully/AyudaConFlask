@@ -32,8 +32,8 @@ for x in posts:
     while patente in list1:
         patente=str(rand())+str(rand())+str(rand())+str(rand())+str(rand2())+str(rand2())
     list1.append(patente)
-    sql="""insert INTO autos VALUES """
-    sql=sql+("('{}','{}','{}','{}','{}','{}','{}','{}',{},'{}');".format(patente,
+    sql="""insert into autos (patente,rut,largo,ancho,alto,peso_neto,tipo_combustible,tipo_auto,maximo_pasajeros,num_aro) values """
+    sql=sql+("('{}',{},{},{},{},{},'{}','{}',{},'{}');".format(patente,
     x[0],
     randint(3500, 5000),
     randint(1700, 1900), 
