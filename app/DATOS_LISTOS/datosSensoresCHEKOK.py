@@ -14,7 +14,7 @@ seq=["Sensor De Presion Cilindros",
 "Sensor Velocidad",
 "Sensor De Aceleracion"]
 
-presicion=['90%','92%','93%', '100%']
+presicion=['0.9','0.92','0.93', '1.00']
 seq2=['atms',
 'celsius',
 'celsius',
@@ -25,8 +25,8 @@ seq2=['atms',
 "ms2"]
 x=1
 for i in seq:
-    sql="""insert INTO sensores VALUES"""
-    sql=sql+("({},'{}','{}','{}');".format(x, 
+    sql="""insert into sensores (id_sensor, nombre,presicion,tipo_unidad) values"""
+    sql=sql+("('{}','{}',{},'{}');".format(x, 
     i,
     choice(presicion), 
     seq2[x-1]))
