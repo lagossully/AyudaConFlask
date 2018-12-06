@@ -15,11 +15,11 @@ sql ="""
 CREATE TABLE CLIENTES
            (RUT integer PRIMARY KEY,
            digito varchar(10),
-           nombre varchar(40),
-           apellido varchar(40),
+           nombre varchar(100),
+           apellido varchar(100),
            email varchar(100),
-           telefono varchar(40),
-           direccion varchar(40));
+           telefono varchar(100),
+           direccion varchar(100));
 """
 cur.execute(sql)
 
