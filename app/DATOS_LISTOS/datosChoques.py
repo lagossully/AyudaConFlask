@@ -109,8 +109,8 @@ fake = Faker()
 
 for x in range(0,30):
     ciudad = choice(results)
-    sql="""insert INTO choques VALUES"""
-    sql=sql+("({},{},{},'{}','{}');".format(x,
+    sql="""insert into choques values (ID_EVENTO,fecha,hora,ciudad,calle,numeracion) """
+    sql=sql+("({},'{}','{}','{}','{}');".format(x,
     fake.date(),
     fake.time(),
     ciudad,
