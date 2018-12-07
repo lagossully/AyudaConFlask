@@ -42,7 +42,7 @@ cur.execute(sql)
 
 sql ="""
 CREATE TABLE SENSORES
-           (id_sensor varchar(10) PRIMARY KEY, 
+           (id_sensor int PRIMARY KEY, 
            nombre varchar(40), 
            presicion integer, 
            tipo_unidad varchar(10));
@@ -54,7 +54,7 @@ cur.execute(sql)
 
 sql ="""
 CREATE TABLE MEDICIONES
-           (id_sensor varchar(10) references SENSORES(id_sensor),
+           (id_sensor int references SENSORES(id_sensor),
             PATENTE varchar(6) references AUTOS(PATENTE),
             hora varchar(10),
             fecha varchar(20),
