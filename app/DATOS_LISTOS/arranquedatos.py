@@ -1,4 +1,4 @@
 import datosAutosCHEKOK
-import datosClientesCHEOK
+import datosClientesCHEKOK
 import datosSensoresCHEKOK
 import datosFaltasCHEKOK
