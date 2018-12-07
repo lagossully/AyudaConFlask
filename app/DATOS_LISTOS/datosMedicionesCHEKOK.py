@@ -38,12 +38,12 @@ for t in posts2:
                     data=randrange(60, 150, 10)
                 if y[0] == 8:
                     data=randrange(50,120,5)           
-                sql="""insert into mediciones (id_sensor,PATENTE,hora,fecha,valor) values"""
+                sql="""insert INTO mediciones VALUES"""
                 sql=sql+("('{}','{}','{}','{}','{}');".format(y[0],
                 t[0],
                 hour,
                 fecha,
-                data)))
+                data))
                 cur.execute(sql)
                 c+=1
             hour=last
