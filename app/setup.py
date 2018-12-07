@@ -19,7 +19,7 @@ CREATE TABLE CLIENTES
            apellido varchar(100),
            email varchar(100),
            telefono varchar(100),
-           direccion varchar(100));
+           url varchar(100));
 """
 cur.execute(sql)
 
