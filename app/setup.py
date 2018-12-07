@@ -55,7 +55,7 @@ cur.execute(sql)
 sql ="""
 CREATE TABLE MEDICIONES
            (id_sensor varchar(10) references SENSORES(id_sensor),
-            patente varchar(6) references AUTOS(PATENTE),
+            PATENTE varchar(6) references AUTOS(PATENTE),
             hora varchar(10),
             fecha varchar(20),
             valor int);
@@ -65,7 +65,7 @@ cur.execute(sql)
 sql ="""
 CREATE TABLE CHOQUES
             (ID_EVENTO int PRIMARY KEY,
-            fecha varchar(20),
+            fecha_incidente varchar(20),
             hora varchar(10),
             ciudad varchar(60),
             calle varchar(60),
@@ -96,7 +96,7 @@ CREATE TABLE FALTAS
             (id_penalizacion integer PRIMARY KEY,
             monto int,
             comentario varchar(100),
-            fecha_incidente varchar(20) references CHOQUES(fecha),
+            fecha_incidente varchar(20) references CHOQUES(fecha_incidente),
             fecha_vencimiento varchar(20));
 """
 cur.execute(sql)
