@@ -95,7 +95,7 @@ sql ="""
 CREATE TABLE FALTAS
             (id_penalizacion integer PRIMARY KEY,
             monto int,
-            comentario varchar(100),
+            comentario varchar(300),
             fecha_incidente varchar(20),
             fecha_vencimiento varchar(20));
 """
