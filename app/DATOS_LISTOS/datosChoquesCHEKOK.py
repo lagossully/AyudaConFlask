@@ -3,8 +3,6 @@ from random import choice, random, randint
 import csv
 from configuraciones import *
 import psycopg2
-conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
-cur = conn.cursor()
 
 
 
@@ -105,6 +103,10 @@ calles['San Felipe'] = sanfelipe
 
 
 
+conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
+cur = conn.cursor()
+
+
 fake = Faker()
 
 for x in range(0,30):
@@ -114,7 +116,8 @@ for x in range(0,30):
     fake.date(),
     fake.time(),
     ciudad,
-    choice(calles[ciudad])))
+    choice(calles[ciudad],
+    randint(0,9999))))
     cur.execute(sql)
 
 conn.commit()

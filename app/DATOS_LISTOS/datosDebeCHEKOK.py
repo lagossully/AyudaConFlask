@@ -20,7 +20,7 @@ posts2  = cur.fetchall()
 
 for x in posts:
     for y in  posts2:
-        sql= ("insert into debe (id_usuario,id_penalizacion) values")
+        sql= ("""insert into debe (id_usuario,id_penalizacion) values""")
         sql = sql + ("({},{});".format(x[0],y[0]))
         cur.execute(sql)
 
