@@ -7,14 +7,6 @@ import psycopg2
 conn = psycopg2.connect("dbname=%s user=%s password=%s"%(database,user,passwd))
 cur = conn.cursor()
 
-sql="""select fecha from choques;"""
-
-cur.execute(sql)
-posts  = cur.fetchall()
-
-fechasChoques = []
-for x in posts:
-    fechasChoques.append(x[1])
 
 fake = Faker()
 

@@ -43,7 +43,7 @@ for t in posts2:
                 t[0],
                 hour,
                 fecha,
-                data))
+                data)))
                 cur.execute(sql)
                 c+=1
             hour=last
