@@ -96,7 +96,7 @@ CREATE TABLE FALTAS
             (id_penalizacion integer PRIMARY KEY,
             monto int,
             comentario varchar(100),
-            fecha_incidente varchar(20) references CHOQUES(fecha)(30),
+            fecha_incidente varchar(20) references CHOQUES(fecha),
             fecha_vencimiento varchar(20));
 """
 cur.execute(sql)
