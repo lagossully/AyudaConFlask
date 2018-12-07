@@ -65,7 +65,7 @@ cur.execute(sql)
 sql ="""
 CREATE TABLE CHOQUES
             (ID_EVENTO int PRIMARY KEY,
-            fecha_incidente varchar(20),
+            fecha varchar(20),
             hora varchar(10),
             ciudad varchar(60),
             calle varchar(60),
@@ -96,7 +96,7 @@ CREATE TABLE FALTAS
             (id_penalizacion integer PRIMARY KEY,
             monto int,
             comentario varchar(100),
-            fecha_incidente varchar(20) references CHOQUES(fecha_incidente),
+            fecha_incidente varchar(20),
             fecha_vencimiento varchar(20));
 """
 cur.execute(sql)
